@@ -1,3 +1,3 @@
 # Title
-[link1]()
+[link1](fake)
 [link2]()
