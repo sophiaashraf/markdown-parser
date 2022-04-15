@@ -25,9 +25,16 @@ public class MarkdownParse {
                 break;
             }
             //empty link 
-            if((openParen + 1) == closeParen){
+            else if((openParen + 1) == closeParen){
+                currentIndex = closeParen + 1;
                 currentIndex++;
+                continue;
             }
+            else if(openBracket - 1 == markdown.indexOf("!",currentIndex)){
+                currentIndex = closeParen + 1;
+                continue;
+            }
+
         }
 
         return toReturn;

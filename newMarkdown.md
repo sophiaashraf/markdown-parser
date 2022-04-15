@@ -1,3 +1,3 @@
 # Title
-[link1](fake)
-[link2]()
+![link1](www.google.com)
+[link2](www..com)
