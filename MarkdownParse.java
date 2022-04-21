@@ -18,10 +18,10 @@ public class MarkdownParse {
             int closeBracket = markdown.indexOf("]", openBracket);
             int openParen = markdown.indexOf("(", closeBracket);
             int closeParen = markdown.indexOf(")", openParen);
-            toReturn.add(markdown.substring(openParen + 1, closeParen));
-            System.out.println("Current index is " + currentIndex);
+            //System.out.println("Current index is " + currentIndex);
             currentIndex = closeParen + 1;
-            if(openBracket == -1 ){
+            // no infinite loop
+            if(openBracket == -1 || closeParen == -1){
                 break;
             }
             //empty link 
@@ -30,10 +30,13 @@ public class MarkdownParse {
                 currentIndex++;
                 continue;
             }
+            // ! in front of bracket 
             else if(openBracket - 1 == markdown.indexOf("!",currentIndex)){
                 currentIndex = closeParen + 1;
                 continue;
-            }
+            } 
+            toReturn.add(markdown.substring(openParen + 1, closeParen));
+            currentIndex ++;
 
         }
 
