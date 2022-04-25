@@ -1,4 +1,5 @@
 # Title
 
-[link1](https://something.com)
+[link1]()
 [link2](some-thing.html)
+
