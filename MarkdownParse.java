@@ -30,25 +30,16 @@ public class MarkdownParse {
                 currentIndex++;
                 continue;
             }
-            //checks if paren aren't present
-            else if(!markdown.contains("(") || !markdown.contains(")")){
-                currentIndex = closeParen + 1;
-                currentIndex++;
-                continue;            }
-            // checks if brackets aren't present
-            else if(!markdown.contains("[") || !markdown.contains("]")){
+
+            // ! in front of bracket or inside link
+            else if((markdown.indexOf("!", currentIndex) == openBracket - 1 || markdown.contains("!"))){
                 currentIndex = closeParen + 1;
                 currentIndex++;
                 continue;
             }
-            // ! in front of bracket or inside link
-            else if(openBracket - 1 == markdown.indexOf("!",currentIndex)){
-                currentIndex = closeParen + 1;
-                continue;
-            } 
             
             toReturn.add(markdown.substring(openParen + 1, closeParen));
-            currentIndex ++;
+            currentIndex++;
 
         }
 
